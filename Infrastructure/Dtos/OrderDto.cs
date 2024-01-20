@@ -6,7 +6,11 @@ public class OrderDto : CreateOrderDto
 {
     public int OrderId { get; set; }
 
-    public OrderDto(int orderId, string sourceCity, string sourceAddress, string destinationCity, string destinationAddress, double cargoWeight, DateOnly dateOfCollection) 
+    public OrderDto()
+    {
+        
+    }
+    public OrderDto(int orderId, string sourceCity, string sourceAddress, string destinationCity, string destinationAddress, double cargoWeight, DateTime dateOfCollection) 
         : base(sourceCity, sourceAddress, destinationCity, destinationAddress, cargoWeight, dateOfCollection)
     {
         OrderId = orderId;

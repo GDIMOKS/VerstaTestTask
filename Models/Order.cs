@@ -11,6 +11,6 @@ public class Order
     public string DestinationAddress { get; set; }
     
     public double CargoWeight { get; set; }
-    public DateOnly DateOfCollection { get; set; }
+    public DateTime DateOfCollection { get; set; }
     
 }

@@ -11,9 +11,13 @@ public class CreateOrderDto
     public string DestinationAddress { get; set; }
     
     public double CargoWeight { get; set; }
-    public DateOnly DateOfCollection { get; set; }
+    public DateTime DateOfCollection { get; set; }
 
-    public CreateOrderDto(string sourceCity, string sourceAddress, string destinationCity, string destinationAddress, double cargoWeight, DateOnly dateOfCollection)
+    public CreateOrderDto()
+    {
+        
+    }
+    public CreateOrderDto(string sourceCity, string sourceAddress, string destinationCity, string destinationAddress, double cargoWeight, DateTime dateOfCollection)
     {
         SourceCity = sourceCity;
         SourceAddress = sourceAddress;
