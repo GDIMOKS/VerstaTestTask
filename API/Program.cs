@@ -13,6 +13,14 @@ builder.Services.AddDbContext<OrdersDbContext>(x => x.UseNpgsql(builder.Configur
 
 builder.Services.AddScoped<IOrderService, OrderService>();
 
+builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
+    builder =>
+    {
+        builder.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    }));
+
 
 var app = builder.Build();
 
@@ -23,6 +31,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("CorsPolicy");
 app.UseAuthorization();
 app.MapControllers();
 
