@@ -31,17 +31,16 @@ public class OrderService : IOrderService
         return (order != null) ? new OrderDto(order) : null;
     }
 
-    public int AddOrder(string sourceCity, string sourceAddress, string destinationCity, string destinationAddress,
-        double cargoWeight, DateTime dateOfCollection)
+    public int AddOrder(CreateOrderDto orderDto)
     {
         var order = new Order()
         {
-            SourceCity = sourceCity,
-            SourceAddress = sourceAddress,
-            DestinationCity = destinationCity,
-            DestinationAddress = destinationAddress,
-            CargoWeight = cargoWeight,
-            DateOfCollection = dateOfCollection
+            SourceCity = orderDto.SourceCity,
+            SourceAddress = orderDto.SourceAddress,
+            DestinationCity = orderDto.DestinationCity,
+            DestinationAddress = orderDto.DestinationAddress,
+            CargoWeight = orderDto.CargoWeight,
+            DateOfCollection = orderDto.DateOfCollection
         };
 
         var newOrder = _dbContext.Orders.Add(order);
@@ -62,22 +61,26 @@ public class OrderService : IOrderService
         return true;
     }
 
-    public bool UpdateOrder(int id, string sourceCity, string sourceAddress, string destinationCity,
-        string destinationAddress, double cargoWeight, DateTime dateOfCollection)
+    public bool UpdateOrder(int id, CreateOrderDto orderDto)
     {
         var order = _dbContext.Orders.FirstOrDefault(x => x.OrderId == id);
 
         if (order == null) return false;
         
-        order.SourceCity = sourceCity;
-        order.SourceAddress = sourceAddress;
-        order.DestinationCity = destinationCity;
-        order.DestinationAddress = destinationAddress;
-        order.CargoWeight = cargoWeight;
-        order.DateOfCollection = dateOfCollection;
+        DtoToModel(ref order, ref orderDto);
         
         _dbContext.SaveChanges();
 
         return true;
+    }
+
+    private void DtoToModel(ref Order order, ref CreateOrderDto orderDto)
+    {
+        order.SourceCity = orderDto.SourceCity;
+        order.SourceAddress = orderDto.SourceAddress;
+        order.DestinationCity = orderDto.DestinationCity;
+        order.DestinationAddress = orderDto.DestinationAddress;
+        order.CargoWeight = orderDto.CargoWeight;
+        order.DateOfCollection = orderDto.DateOfCollection;
     }
 }

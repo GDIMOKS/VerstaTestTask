@@ -6,7 +6,7 @@ public interface IOrderService
 {
     List<OrderDto> GetOrders();
     OrderDto? GetOrder(int id);
-    int AddOrder(string sourceCity, string sourceAddress, string destinationCity, string destinationAddress, double cargoWeight, DateTime dateOfCollection);
+    int AddOrder(CreateOrderDto orderDto);
     bool DeleteOrder(int id);
-    bool UpdateOrder(int id, string sourceCity, string sourceAddress, string destinationCity, string destinationAddress, double cargoWeight, DateTime dateOfCollection);
+    bool UpdateOrder(int id, CreateOrderDto orderDto);
 }

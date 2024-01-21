@@ -30,10 +30,9 @@ public class OrdersController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult AddOrder([FromBody]OrderDto dto)
+    public ActionResult AddOrder([FromBody]CreateOrderDto dto)
     {
-        var orderId = _orderService.AddOrder(dto.SourceCity, dto.SourceAddress, dto.DestinationCity,
-            dto.DestinationAddress, dto.CargoWeight, dto.DateOfCollection);
+        var orderId = _orderService.AddOrder(dto);
 
         return Ok(orderId);
     }
@@ -50,10 +49,9 @@ public class OrdersController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public ActionResult UpdateOrder([FromRoute]int id, [FromBody]OrderDto dto)
+    public ActionResult UpdateOrder([FromRoute]int id, [FromBody]CreateOrderDto dto)
     {
-        var result = _orderService.UpdateOrder(id, dto.SourceCity, dto.SourceAddress, dto.DestinationCity,
-            dto.DestinationAddress, dto.CargoWeight, dto.DateOfCollection);
+        var result = _orderService.UpdateOrder(id, dto);
         
         if (result)
             return Ok($"Заказ №{id} успешно обновлен!");
