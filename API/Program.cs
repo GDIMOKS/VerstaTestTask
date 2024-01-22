@@ -21,6 +21,7 @@ builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
             .AllowAnyMethod();
     }));
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 var app = builder.Build();
 
