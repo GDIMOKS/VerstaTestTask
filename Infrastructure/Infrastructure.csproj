@@ -7,12 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Dtos\" />
-      <Folder Include="Repository\Interfaces\" />
-      <Folder Include="Repository\Services\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
       <ProjectReference Include="..\Models\Models.csproj" />
     </ItemGroup>
