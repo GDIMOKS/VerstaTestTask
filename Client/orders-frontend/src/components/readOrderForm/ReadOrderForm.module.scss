@@ -1,0 +1,28 @@
+.readOrderForm {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  padding: 25px;
+  margin-top: 25px;
+  border: 1px solid black;
+
+  >.address {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+
+  >.weightAndDate {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+
+    >.halfForm {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 50%;
+      margin-bottom: 25px;
+    }
+  }
+  
+}

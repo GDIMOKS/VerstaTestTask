@@ -1,0 +1,54 @@
+@import "./reset.scss";
+
+a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+
+  &:hover {
+    background-color: #d9d9d9;
+  }
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 5px;
+  width: 100%;
+  cursor: pointer;
+  background-color: #dadada;
+
+  &:hover {
+    background-color: #00d0ff;
+  }
+}
+
+.MainPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 600px;
+  gap: 15px;
+}
+
+.AddOrderPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 600px;
+  margin: 0px auto;
+}
+
+
+.buttonsPanel {
+  display: flex;
+  width: 100%;
+  margin-top: 50px;
+  gap: 10px;
+}
+
